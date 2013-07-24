@@ -18,7 +18,18 @@ if (Meteor.isClient) {
   Template.user.events({
     'click .add_user' : function (){
       var new_user_name = $('.new_user_name').val();
-      Users.insert({name:new_user_name});
+      Users.insert(
+        {name:new_user_name},
+        function(error, result){
+          if(error){
+            console.log("Error inserting: ", error);
+          } else {
+            console.log(result, result._id);
+            Session.set("current_user", result);
+            console.log(Session.get("current_user"));
+          }
+        }
+      );
       console.log(Users.find().fetch());
     }
   });
