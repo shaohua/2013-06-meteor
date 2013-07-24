@@ -5,6 +5,7 @@
 <body>
   <div id="outer">
     {{> leaderboard}}
+    {{> new_player}}
   </div>
 </body>
 
@@ -32,5 +33,13 @@
     <span class="name">{{name}}</span>
     <span class="score">{{score}}</span>
   </div>
+</template>
+
+<template name="new_player">
+  <form>
+    <label>New Player</label>
+    <input type="text" class="new_player_input"></input>
+    <button class="new_player_add_btn">Add</button>
+  </form>
 </template>
 

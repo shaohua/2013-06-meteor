@@ -17,6 +17,8 @@ if (Meteor.isClient) {
     return Session.equals("selected_player", this._id) ? "selected" : '';
   };
 
+
+
   Template.leaderboard.events({
     'click input.inc': function () {
       Players.update(Session.get("selected_player"), {$inc: {score: 5}});
@@ -28,7 +30,15 @@ if (Meteor.isClient) {
       Session.set("selected_player", this._id);
     }
   });
-}
+
+  Template.new_player.events({
+    'click .new_player_add_btn': function () {
+      var new_player = $('.new_player_input').val();
+      Players.insert({name:new_player, score:0});
+      return false; //prevents reload
+    }
+
+  });}
 
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
