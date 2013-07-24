@@ -15,6 +15,11 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.user.current_user = function () {
+    var user = Users.findOne(Session.get("current_user"));
+    return user && user.name;
+  };
+
   Template.user.events({
     'click .add_user' : function (){
       var new_user_name = $('.new_user_name').val();
