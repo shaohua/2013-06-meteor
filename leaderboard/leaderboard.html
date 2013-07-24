@@ -20,6 +20,7 @@
   <div class="details">
     <div class="name">{{selected_name}}</div>
     <input type="button" class="inc" value="Give 5 points" />
+    <input type="button" class="remove" value="Remove 5 points" />
   </div>
   {{/if}}
 
@@ -38,8 +39,8 @@
 <template name="new_player">
   <form>
     <label>New Player</label>
-    <input type="text" class="new_player_input"></input>
-    <button class="new_player_add_btn">Add</button>
+    <input type="text" class="new_player_input"/>
+    <input type="button" class="new_player_add_btn" value="Add"/>
   </form>
 </template>
 
